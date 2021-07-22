@@ -11,7 +11,7 @@
 <h2>Diferencial da proposta</h2>
   Esta proposta se diferencia pela inovação da forma como conhecimento prático é disseminado. O conhecer das plantas pode ser tornar algo corriqueiro e presente no dia a dia das pessoas. 
 <h2>Público alvo</h2>
-A comunidade acadêmica da UFSC.<br><br><br><br>
+A comunidade acadêmica da UFSC.<br><br>
 
 
 <h2>Protótipos:</h2>
@@ -23,6 +23,6 @@ signupPage https://github.com/RafaelAcheSales/PlantID/files/6859331/signupPage.p
 
 
 <h2>Grupo:</h2>
-Rafael Aché Sales 18100543
-Lorenzo Maturano 19100535
-Weslley da Costa Silva 19250728
+Rafael Aché Sales 18100543<br>
+Lorenzo Maturano 19100535<br>
+Weslley da Costa Silva 19250728<br>
