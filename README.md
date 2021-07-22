@@ -24,3 +24,5 @@ signupPage https://github.com/RafaelAcheSales/PlantID/files/6859331/signupPage.p
 
 <h2>Grupo:</h2>
 Rafael Aché Sales 18100543
+Lorenzo Maturano 19100535
+Weslley da Costa Silva 19250728
