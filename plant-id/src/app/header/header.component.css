@@ -1,0 +1,19 @@
+.light-green {
+    background-color: #93ce64;
+}
+.white {
+    color: #ffffff
+}
+
+.shadoww {
+    text-shadow: 4px 4px #6e9a4b
+}
+.auto-h {
+    max-width: 100%;
+    width: 100px;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
+}
