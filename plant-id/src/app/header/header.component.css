@@ -1,3 +1,4 @@
+
 .light-green {
     background-color: #93ce64;
 }
@@ -6,14 +7,30 @@
 }
 
 .shadoww {
-    text-shadow: 4px 4px #6e9a4b
+    text-shadow: 8px 8px 2px #6e9a4b
 }
 .auto-h {
     max-width: 100%;
     width: 100px;
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 0;
     margin-top: auto;
     margin-bottom: auto;
     height: auto;
+}
+
+img { 
+    -webkit-filter: drop-shadow(11px 9px 1px #6e9a4b);
+    filter:         drop-shadow(11px 9px 1px #6e9a4b); 
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#dddddd; 
+    text-decoration:none; 
+    cursor:pointer;  
 }
