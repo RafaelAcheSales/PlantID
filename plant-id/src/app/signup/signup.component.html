@@ -1,6 +1,5 @@
 <div class="container signup">
-    <form class="form-signup">
-
+    <form class="form-signup" [formGroup]="formSignup">
         <h1 class="h3 mb-3 font-weight-normal">Realize o Cadastro</h1>
         <div class="div-signup"></div>
         <div class="row align-items-center div-inputs">
@@ -8,7 +7,15 @@
                 <label>Email:</label>
             </div>
             <div class="col-10">
-                <input type="email" id="email" class="form-control" required autofocus>
+                <input type="email" id="email" class="form-control" formControlName="email" required autofocus [ngClass]="{ 'is-invalid': formSignup.controls.email.errors }">
+                <ng-container *ngIf="formSignup.controls.email.touched">
+                    <small *ngIf="formSignup.controls.email.errors?.required" class="form-text text-muted">
+                        Campo obrigatório
+                    </small>
+                    <small *ngIf="formSignup.controls.email.errors?.email" class="form-text text-muted">
+                        E-mail inválido
+                    </small>
+                </ng-container>
             </div>
         </div>
         <div class="row align-items-center div-inputs">
@@ -16,7 +23,16 @@
                 <label>Senha:</label>
             </div>
             <div class="col-10">
-                <input type="password" id="password1" class="form-control" required>
+                <input type="password" id="password1" class="form-control is-valid" formControlName="password1" required [ngClass]="{ 'is-invalid': formSignup.controls.password1.errors }">
+                <ng-container *ngIf="formSignup.controls.password1.touched">
+                    <small *ngIf="formSignup.controls.password1.errors?.required" class="form-text text-muted">
+                        Campo obrigatório
+                    </small>
+                    <small *ngIf="formSignup.controls.password1.errors?.patern" class="form-text text-muted">
+                        Sua senha nao deve conter caracteres especiais.
+                        <!--"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"-->
+                    </small>
+                </ng-container>
             </div>
         </div>
         <div class="row align-items-center div-inputs">
@@ -24,11 +40,20 @@
                 <label>Confirme a Senha:</label>
             </div>
             <div class="col-10">
-                <input type="password" id="password2" class="form-control" required>
+                <input type="password" id="password2" class="form-control is-invalid" formControlName="password2" required [ngClass]="{ 'is-invalid': formSignup.controls.password1.errors }">
+                <ng-container *ngIf="formSignup.controls.password2.touched">
+                    <small *ngIf="formSignup.controls.password2.errors?.required" class="form-text text-muted">
+                        Campo obrigatório
+                    </small>
+                    <small *ngIf="formSignup.controls.password2.errors?.patern" class="form-text text-muted">
+                        Sua senha nao deve conter caracteres especiais.
+                        <!--"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"-->
+                    </small>
+                </ng-container>
             </div>
         </div>
         <div class="col text-center div-signup">
-            <button class="btn btn-lg btn-primary" type="submit">Confirmar</button>
+            <button class="btn btn-lg btn-primary" type="button" (click)="criarUser()" [disabled]="!formSignup.valid">Confirmar</button>
         </div>
     </form>
 </div>
