@@ -1,0 +1,22 @@
+
+.light-green {
+    background-color: #93ce64;
+}
+.white {
+    color: #ffffff
+}
+
+.shadoww {
+    text-shadow: 8px 8px 2px #6e9a4b
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#fff; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
