@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build: ./api
+    command: /usr/src/app/node_modules/.bin/nodemon index.js
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    networks: 
+      - backend
+    volumes:
+      - "./api/:/usr/src/app"
+      - "reserved:/usr/src/app/node_modules"
+  database:
+    image: "mongo" 
+    #ports:
+    #  - "27017:27017"
+    networks: 
+      - backend
+    environment:
+      - MONGO_INITDB_DATABASE=plantid
+
+volumes:
+  reserved:
+
+networks:
+  backend:
