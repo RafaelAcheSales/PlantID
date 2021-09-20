@@ -13,6 +13,9 @@
 <h2>Público alvo</h2>
 A comunidade acadêmica da UFSC.<br>
 
+<h2>Como rodar</h2>
+  docker-compose up --build
+
 
 <h2>Protótipos:</h2>
 MainPage https://github.com/RafaelAcheSales/PlantID/files/6859328/siteMainPageMobile.pdf<br>
