@@ -5,15 +5,25 @@
 .white {
     color: #ffffff
 }
+.header-route {
 
+}
+.title {
+    font-size: 100px;
+}
+.header {
+
+}
 .shadoww {
     text-shadow: 8px 8px 2px #6e9a4b
 }
 .auto-h {
+    margin-left: auto;
+  margin-right: auto;
     max-width: 100%;
     width: 100px;
-    margin-left:5%;
-    margin-right: 5%;
+    /* margin-left:5%;
+    margin-right: 5%; */
     margin-top: auto;
     margin-bottom: auto;
     height: auto;
