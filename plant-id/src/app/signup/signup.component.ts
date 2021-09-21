@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl ,ValidatorFn, Valid
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  Http: any;
   formSignup: FormGroup;
 
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
@@ -25,22 +25,24 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Http = new XMLHttpRequest()
   }
 
   criarUser() {
     if(!this.formSignup.valid){
-      const Http = new XMLHttpRequest();
-      const url='https://jsonplaceholder.typicode.com/posts';
-      Http.open("GET", url);
-      Http.send();
       
-      Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-      }
       alert('Formulario inválido');
       return;
     }
-    alert('Formulario Válido');
+    console.log("vambora");
+    var url = 'https://jsonplaceholder.typicode.com/posts';
+    this.Http.open("GET", url);
+    this.Http.send();
+    
+    this.Http.onreadystatechange = () => {
+      console.log(this.Http.status)
+    }
+    // alert('Formulario Válido');
   }
 
   
