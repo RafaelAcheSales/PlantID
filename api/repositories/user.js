@@ -23,7 +23,7 @@ module.exports = new class UserRepository {
     }
 
     delete(email){
-        User.findOneAndRemove({email: email});
+        return User.findOneAndRemove({email: email});
     }
     
 }

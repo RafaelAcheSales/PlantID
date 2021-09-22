@@ -3,6 +3,8 @@ var router = express.Router();
 
 const userCtrl = require('../controllers/user');
 
+//resgata  todos users
+router.get('/all', userCtrl.getAll);
 //criar user
 router.post('/', userCtrl.newUser);
 //atualizar user
@@ -11,7 +13,5 @@ router.put('/:email', userCtrl.updateUser);
 router.delete('/:email', userCtrl.delUser);
 //resgata user
 router.get('/:email', userCtrl.getUser);
-//resgata  todos users
-router.get('/all', userCtrl.getAll);
 
 module.exports = router;

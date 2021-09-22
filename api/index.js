@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const mongo = require("./utils/db");
 const logger = require("./utils/logger");
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
+
+var morgan = require('morgan')
+
+
 
 var bodyParser = require("body-parser");
 var cors = require('cors');
@@ -17,6 +21,8 @@ var corsOptions = {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+
+//app.use(morgan('combined'))
 
 
 //rotas
