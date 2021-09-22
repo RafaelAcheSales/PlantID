@@ -8,7 +8,6 @@ import { SessionService } from '../session.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isNotLoggedIn: boolean = false;
   LoggedObservable: Observable<boolean> = new Observable<boolean>();
 
   constructor(private service: SessionService) { 
@@ -20,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
   handleLogEvent(isLogged:boolean): void {
     this.LoggedObservable =  new Observable(observer=>observer.next(isLogged));
-    alert("logevent");
+    // alert("logevent");
   }
   
 
