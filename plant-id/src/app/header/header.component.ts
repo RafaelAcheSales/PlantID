@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isNotLoggedIn: boolean = false;
+  LoggedObservable: Observable<boolean> = new Observable<boolean>();
 
-  constructor() { }
+  constructor(private service: SessionService) { 
+
+    }
 
   ngOnInit(): void {
+    this.service.userChangeEvent.subscribe(this.handleLogEvent);
   }
+  handleLogEvent(isLogged:boolean): void {
+    this.LoggedObservable =  new Observable(observer=>observer.next(isLogged));
+    alert("logevent");
+  }
+  
 
 }
