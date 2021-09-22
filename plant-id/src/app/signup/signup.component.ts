@@ -35,11 +35,13 @@ export class SignupComponent implements OnInit {
       return;
     }
     console.log("vambora");
-    var url = 'http://0.0.0.0:30000/user';
+    var url = 'http://0.0.0.0:3000/user';
     this.Http.open("POST", url);
     let signup_data = {"email": this.formSignup.controls["email"].value, "password": this.formSignup.controls["password1"].value};
     console.log(JSON.stringify(signup_data));
-    this.Http.send();
+
+    this.Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    this.Http.send(JSON.stringify(signup_data));
     
     this.Http.onreadystatechange = () => {
       switch (this.Http.readyState) {
