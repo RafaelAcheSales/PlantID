@@ -35,12 +35,28 @@ export class SignupComponent implements OnInit {
       return;
     }
     console.log("vambora");
-    var url = 'https://jsonplaceholder.typicode.com/posts';
-    this.Http.open("GET", url);
+    var url = 'http://0.0.0.0/api/user';
+    this.Http.open("POST", url);
+    let signup_data = {"email": this.formSignup.controls["email"].value, "password": this.formSignup.controls["password1"].value};
+    console.log(JSON.stringify(signup_data));
     this.Http.send();
     
     this.Http.onreadystatechange = () => {
-      console.log(this.Http.status)
+      switch (this.Http.readyState) {
+        case 4:
+          let status = this.Http.status;
+          if (status >= 200 && status < 300) {
+            console.log("sucess");
+          } else {
+            
+            console.log("could not create account");
+          }
+          break;
+      
+        default:
+          break;
+      }
+
     }
     // alert('Formulario Válido');
   }

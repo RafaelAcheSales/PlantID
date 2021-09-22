@@ -8,7 +8,7 @@
                 <label>Email:</label>
             </div>
             <div class="col-10">
-                <input type="email" id="email" class="form-control" required autofocus>
+                <input type="email" id="email" class="form-control" name="email"[(ngModel)]="email" required autofocus>
             </div>
         </div>
         <div class="row align-items-center div-inputs">
@@ -16,11 +16,11 @@
                 <label>Senha:</label>
             </div>
             <div class="col-10">
-                <input type="password" id="password" class="form-control" required>
+                <input type="password" id="password" class="form-control" name="password"[(ngModel)]="password" required>
             </div>
         </div>
         <div class="col text-center div-login">
-            <button class="btn btn-lg btn-primary" type="submit">Confirmar</button>
+            <button class="btn btn-lg btn-primary" type="submit" (click)="login()">Confirmar</button>
         </div>
     </form>
 </div>
