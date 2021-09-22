@@ -2,7 +2,7 @@
 FROM node:12.22-alpine AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm cache clear --force && npm install
 COPY . .
 RUN npm run build
 

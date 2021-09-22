@@ -20,10 +20,11 @@ app.use(cors(corsOptions));
 
 
 //rotas
-//const apiRoute = require('./routers/api')
-//const appRoute = require('./routers/app')
+const loginRoute = require('./routers/login')
+const userRoute = require('./routers/user')
 
-//app.use('/api', apiRoute);
+app.use('/login', loginRoute);
+app.use('/user', userRoute);
 app.use('/', (req, res) => {
     res.send('Hello World API!')
 });
