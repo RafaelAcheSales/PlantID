@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     //   alert("already logged in");
     //   return;
     // }
-    var url = 'http://0.0.0.0/api/login';
+    var url = 'http://0.0.0.0:3000/login';
     this.Http.open("POST", url);
     let login_data = {"email": this.email, "password": this.password};
     console.log(JSON.stringify(login_data));
