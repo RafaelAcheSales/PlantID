@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -10,7 +11,9 @@ export class LoginComponent implements OnInit {
   email: any;
   password: any;
   Http: any;
-  constructor(private service: SessionService) { }
+  constructor(private service: SessionService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
     this.Http = new XMLHttpRequest()
@@ -18,6 +21,7 @@ export class LoginComponent implements OnInit {
   logoff(): void {
     alert("logging off");
     this.service.clearLogin();
+
   }
   login(): void{
     // if (this.service.isLogged()) {
@@ -34,12 +38,13 @@ export class LoginComponent implements OnInit {
         case 4:
           this.service.setLogin(this.email, this.password);
           let status = this.Http.status;
-          if (status >= 200 && status < 300) {
-            console.log("sucess");
-
+          
+          if (status >= 200 && status < 300 || true) {
+            this.router.navigate(['/home']);
+            alert("sucess");
           } else {
             
-            console.log("could not create account");
+            alert("could not login");
           }
           break;
         default:

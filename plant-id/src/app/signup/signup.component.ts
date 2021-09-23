@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl ,ValidatorFn, ValidationErrors} from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +8,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl ,ValidatorFn, Valid
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  Http: any;
+  Http: XMLHttpRequest;
   formSignup: FormGroup;
 
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
@@ -16,7 +17,8 @@ export class SignupComponent implements OnInit {
     return pass === confirmPass ? null : { notSame: true }
   }
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private router: Router) { 
+    this.Http = new XMLHttpRequest();
     this.formSignup = this.formBuilder.group({
       email: ['', [Validators.required,Validators.email]],
       password1: ['', [Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
@@ -25,7 +27,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Http = new XMLHttpRequest()
+    
   }
 
   criarUser() {
@@ -38,18 +40,22 @@ export class SignupComponent implements OnInit {
     var url = 'http://0.0.0.0:30000/user';
     this.Http.open("POST", url);
     let signup_data = {"email": this.formSignup.controls["email"].value, "password": this.formSignup.controls["password1"].value};
-    console.log(JSON.stringify(signup_data));
-    this.Http.send();
+    this.Http.send(JSON.stringify(signup_data));
     
     this.Http.onreadystatechange = () => {
+      
       switch (this.Http.readyState) {
+        case 1: 
+          this.Http.setRequestHeader("Content-Type","application/json");
+          break;
         case 4:
           let status = this.Http.status;
           if (status >= 200 && status < 300) {
-            console.log("sucess");
+
+            alert("sucess");
           } else {
             
-            console.log("could not create account");
+            alert("could not create account");
           }
           break;
       

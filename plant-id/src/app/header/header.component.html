@@ -1,8 +1,7 @@
-
 <div class="row pt-4 pb-4 text-center align-items-baseline light-green header">
     <!-- <div class="col-sm-1"></div> -->
-    <h1 class="list-inline-item col-md-4 white shadoww title" ><a href="/home">plant  ID</a></h1>
-    <img src="assets/lupa.png" class="auto-h " >
-    <h2 class="list-inline-item col-md-2 display-5 white header-route" ><a href="/login">login</a></h2>
-    <h2 class="list-inline-item col-md-2 display-5 white header-route"><a href="/signup">sign_up</a></h2>
+    <h1 class="list-inline-item col-md-4 white shadoww title"><a href="/home">plant  ID</a></h1>
+    <img src="assets/lupa.png" class="auto-h ">
+    <h2 class="list-inline-item col-md-2 display-5 white header-route"><a (click)="onLogin()" [href]="login_or_account_href">{{login_or_account}}</a></h2>
+    <h2 class="list-inline-item col-md-2 display-5 white header-route"><a (click)="onSignInOut()" [href]="sign_up_or_sign_out_href">{{sign_up_or_sign_out}}</a></h2>
 </div>
