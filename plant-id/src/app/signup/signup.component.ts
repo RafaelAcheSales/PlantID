@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
       return;
     }
     console.log("vambora");
-    var url = 'http://0.0.0.0:30000/user';
+    var url = 'http://0.0.0.0:3000/user';
     this.Http.open("POST", url);
     let signup_data = {"email": this.formSignup.controls["email"].value, "password": this.formSignup.controls["password1"].value};
     this.Http.send(JSON.stringify(signup_data));

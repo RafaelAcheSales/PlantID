@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     this.Http.open("POST", url);
     let login_data = {"email": this.email, "password": this.password};
     console.log(JSON.stringify(login_data));
-    this.Http.send();
+    this.Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    this.Http.send(JSON.stringify(login_data));
     this.Http.onreadystatechange = () => {
       switch (this.Http.readyState) {
         case 4:
