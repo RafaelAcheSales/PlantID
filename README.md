@@ -14,7 +14,7 @@
 A comunidade acadêmica da UFSC.<br>
 
 <h2>Como rodar</h2>
-  npm install
+  npm install<br>
   docker-compose up --build
 
 
